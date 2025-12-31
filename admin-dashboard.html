@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Lakshya Education</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Admin Dashboard Navigation -->
+    <nav class="dashboard-nav admin-nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <h2>LAKSHYA EDUCATION</h2>
+                    <span class="admin-badge">ADMIN</span>
+                </div>
+                <div class="nav-user">
+                    <span class="welcome-text">Administrator</span>
+                    <button class="logout-btn" onclick="handleAdminLogout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard Content -->
+    <section class="admin-dashboard-section">
+        <div class="container">
+            <h1 class="dashboard-title">ADMIN DASHBOARD</h1>
+            
+            <!-- Admin Tab Navigation -->
+            <div class="admin-tabs">
+                <button class="admin-tab-btn active" data-tab="upload-videos">📹 Upload Videos</button>
+                <button class="admin-tab-btn" data-tab="upload-notes">📄 Upload Notes</button>
+                <button class="admin-tab-btn" data-tab="manage-mcq">📝 Manage MCQ Tests</button>
+                <button class="admin-tab-btn" data-tab="question-bank">🏦 Question Bank</button>
+                <button class="admin-tab-btn" data-tab="live-classes">🎓 Live Classes</button>
+                <button class="admin-tab-btn" data-tab="analytics">📊 Analytics</button>
+                <button class="admin-tab-btn" data-tab="view-content">📋 View All Content</button>
+            </div>
+
+            <!-- Upload Videos Tab -->
+            <div class="admin-tab-content active" id="upload-videos">
+                <div class="content-card">
+                    <h2>Upload Recorded Videos</h2>
+                    <form class="upload-form" id="videoUploadForm" onsubmit="handleVideoUpload(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Program Type</label>
+                                <select class="form-input" id="videoProgramType" required>
+                                    <option value="">Select Program</option>
+                                    <option value="sikshak-sewa">Sikshak Sewa</option>
+                                    <option value="loksewa">Loksewa</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Video Title</label>
+                                <input type="text" class="form-input" id="videoTitle" placeholder="Enter video title" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Video Description</label>
+                            <textarea class="form-input" id="videoDescription" rows="3" placeholder="Enter video description" required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Duration (in minutes)</label>
+                                <input type="number" class="form-input" id="videoDuration" placeholder="120" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Video File or URL</label>
+                                <input type="text" class="form-input" id="videoUrl" placeholder="YouTube URL or file path" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="admin-submit-btn">Upload Video →</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Upload Notes Tab -->
+            <div class="admin-tab-content" id="upload-notes">
+                <div class="content-card">
+                    <h2>Upload Study Notes</h2>
+                    <form class="upload-form" id="notesUploadForm" onsubmit="handleNotesUpload(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Program Type</label>
+                                <select class="form-input" id="notesProgramType" required>
+                                    <option value="">Select Program</option>
+                                    <option value="sikshak-sewa">Sikshak Sewa</option>
+                                    <option value="loksewa">Loksewa</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Notes Title</label>
+                                <input type="text" class="form-input" id="notesTitle" placeholder="Enter notes title" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-input" id="notesDescription" rows="3" placeholder="Enter description" required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Number of Pages</label>
+                                <input type="number" class="form-input" id="notesPages" placeholder="50" required>
+                            </div>
+                            <div class="form-group">
+                                <label>File (PDF/Document)</label>
+                                <input type="file" class="form-input file-input" id="notesFile" accept=".pdf,.doc,.docx" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="admin-submit-btn">Upload Notes →</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Manage MCQ Tests Tab -->
+            <div class="admin-tab-content" id="manage-mcq">
+                <div class="content-card">
+                    <h2>Create MCQ Test</h2>
+                    <form class="upload-form" id="mcqCreateForm" onsubmit="handleMCQCreate(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Program Type</label>
+                                <select class="form-input" id="mcqProgramType" required>
+                                    <option value="">Select Program</option>
+                                    <option value="sikshak-sewa">Sikshak Sewa</option>
+                                    <option value="loksewa">Loksewa</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Test Title</label>
+                                <input type="text" class="form-input" id="mcqTitle" placeholder="Enter test title" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Test Description</label>
+                            <textarea class="form-input" id="mcqDescription" rows="2" placeholder="Enter test description" required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Number of Questions</label>
+                                <input type="number" class="form-input" id="mcqQuestions" placeholder="50" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Time Limit (minutes)</label>
+                                <input type="number" class="form-input" id="mcqTime" placeholder="60" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="admin-submit-btn">Create Test →</button>
+                    </form>
+
+                    <div class="section-divider"></div>
+
+                    <h3>Existing MCQ Tests</h3>
+                    <div class="content-list" id="mcqTestsList">
+                        <p class="empty-message">No tests created yet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Bank Tab -->
+            <div class="admin-tab-content" id="question-bank">
+                <div class="content-card">
+                    <h2>Question Bank Manager</h2>
+                    <p class="subtitle">Add and manage individual questions for existing MCQ tests</p>
+                    
+                    <!-- Select Test -->
+                    <div class="form-group">
+                        <label>Select Test to Edit</label>
+                        <select id="testSelector" class="form-control" onchange="loadTestQuestions()">
+                            <option value="">-- Select a test --</option>
+                        </select>
+                    </div>
+                    
+                    <div id="questionBankContainer" style="display: none;">
+                        <!-- Test Info -->
+                        <div class="test-info-banner">
+                            <h3 id="selectedTestTitle"></h3>
+                            <p id="selectedTestInfo"></p>
+                        </div>
+                        
+                        <div class="section-divider"></div>
+                        
+                        <!-- Add New Question Form -->
+                        <div class="question-editor-section">
+                            <h3>Add New Question</h3>
+                            <form class="upload-form" id="addQuestionForm" onsubmit="handleAddQuestion(event)">
+                                <div class="form-group">
+                                    <label>Question Text *</label>
+                                    <textarea id="newQuestionText" rows="3" class="form-control" required placeholder="Enter your question here..."></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Option A *</label>
+                                    <input type="text" id="newOptionA" class="form-control" required placeholder="First option">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Option B *</label>
+                                    <input type="text" id="newOptionB" class="form-control" required placeholder="Second option">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Option C *</label>
+                                    <input type="text" id="newOptionC" class="form-control" required placeholder="Third option">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Option D *</label>
+                                    <input type="text" id="newOptionD" class="form-control" required placeholder="Fourth option">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Correct Answer *</label>
+                                    <select id="newCorrectAnswer" class="form-control" required>
+                                        <option value="">-- Select correct answer --</option>
+                                        <option value="0">Option A</option>
+                                        <option value="1">Option B</option>
+                                        <option value="2">Option C</option>
+                                        <option value="3">Option D</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Marks for this question</label>
+                                    <input type="number" id="newQuestionMarks" class="form-control" value="1" min="1" max="10">
+                                </div>
+                                
+                                <button type="submit" class="btn">➕ Add Question</button>
+                            </form>
+                        </div>
+                        
+                        <div class="section-divider"></div>
+                        
+                        <!-- Existing Questions List -->
+                        <div class="questions-list-section">
+                            <h3>All Questions (<span id="questionsCount">0</span>)</h3>
+                            <div id="questionsList" class="questions-container">
+                                <p class="empty-message">No questions in this test yet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Classes Tab -->
+            <div class="admin-tab-content" id="live-classes">
+                <div class="content-card">
+                    <h2>Schedule Live Class</h2>
+                    <form class="upload-form" id="liveClassForm" onsubmit="handleLiveClassSchedule(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Program Type</label>
+                                <select class="form-input" id="liveProgramType" required>
+                                    <option value="">Select Program</option>
+                                    <option value="sikshak-sewa">Sikshak Sewa</option>
+                                    <option value="loksewa">Loksewa</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Class Title</label>
+                                <input type="text" class="form-input" id="liveTitle" placeholder="Enter class title" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-input" id="liveDescription" rows="2" placeholder="Enter class description" required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Date & Time</label>
+                                <input type="datetime-local" class="form-input" id="liveDateTime" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Duration (hours)</label>
+                                <input type="number" step="0.5" class="form-input" id="liveDuration" placeholder="2" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Meeting Link</label>
+                            <input type="url" class="form-input" id="liveMeetingLink" placeholder="https://meet.google.com/xxx-xxxx-xxx" required>
+                        </div>
+
+                        <button type="submit" class="admin-submit-btn">Schedule Class →</button>
+                    </form>
+
+                    <div class="section-divider"></div>
+
+                    <h3>Scheduled Classes</h3>
+                    <div class="content-list" id="liveClassesList">
+                        <p class="empty-message">No classes scheduled yet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div class="admin-tab-content" id="analytics">
+                <div class="content-card">
+                    <h2>📊 Analytics Dashboard</h2>
+                    <p class="subtitle">Comprehensive insights into content performance and student engagement</p>
+                    
+                    <!-- Quick Stats Overview -->
+                    <div class="analytics-stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">📹</div>
+                            <div class="stat-value" id="analyticsVideoCount">0</div>
+                            <div class="stat-label">Total Videos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📄</div>
+                            <div class="stat-value" id="analyticsNotesCount">0</div>
+                            <div class="stat-label">Total Notes</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📝</div>
+                            <div class="stat-value" id="analyticsTestsCount">0</div>
+                            <div class="stat-label">Total Tests</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎓</div>
+                            <div class="stat-value" id="analyticsClassesCount">0</div>
+                            <div class="stat-label">Live Classes</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-divider"></div>
+                    
+                    <!-- Engagement Metrics -->
+                    <h3>🔥 Engagement Metrics</h3>
+                    <div class="analytics-stats-grid">
+                        <div class="stat-card engagement">
+                            <div class="stat-icon">👁️</div>
+                            <div class="stat-value" id="totalViews">0</div>
+                            <div class="stat-label">Total Video Views</div>
+                        </div>
+                        <div class="stat-card engagement">
+                            <div class="stat-icon">⬇️</div>
+                            <div class="stat-value" id="totalDownloads">0</div>
+                            <div class="stat-label">Notes Downloaded</div>
+                        </div>
+                        <div class="stat-card engagement">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-value" id="totalTestAttempts">0</div>
+                            <div class="stat-label">Test Attempts</div>
+                        </div>
+                        <div class="stat-card engagement">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-value" id="totalParticipants">0</div>
+                            <div class="stat-label">Class Participants</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-divider"></div>
+                    
+                    <!-- Test Performance -->
+                    <h3>🎯 Student Performance</h3>
+                    <div class="performance-container">
+                        <div class="performance-card">
+                            <h4>Average Test Score</h4>
+                            <div class="big-stat" id="averageScore">0%</div>
+                            <p class="stat-subtitle">Across all test attempts</p>
+                        </div>
+                        <div class="performance-card">
+                            <h4>Total Attempts</h4>
+                            <div class="big-stat" id="totalAttempts">0</div>
+                            <p class="stat-subtitle">Students who took tests</p>
+                        </div>
+                    </div>
+                    
+                    <div class="score-distribution">
+                        <h4>Score Distribution</h4>
+                        <div class="distribution-bars">
+                            <div class="distribution-bar">
+                                <span class="bar-label">0-40% (Fail)</span>
+                                <div class="bar-container">
+                                    <div class="bar bar-red" id="bar-0-40" style="width: 0%"></div>
+                                </div>
+                                <span class="bar-value" id="val-0-40">0</span>
+                            </div>
+                            <div class="distribution-bar">
+                                <span class="bar-label">41-60% (Pass)</span>
+                                <div class="bar-container">
+                                    <div class="bar bar-yellow" id="bar-41-60" style="width: 0%"></div>
+                                </div>
+                                <span class="bar-value" id="val-41-60">0</span>
+                            </div>
+                            <div class="distribution-bar">
+                                <span class="bar-label">61-80% (Good)</span>
+                                <div class="bar-container">
+                                    <div class="bar bar-blue" id="bar-61-80" style="width: 0%"></div>
+                                </div>
+                                <span class="bar-value" id="val-61-80">0</span>
+                            </div>
+                            <div class="distribution-bar">
+                                <span class="bar-label">81-100% (Excellent)</span>
+                                <div class="bar-container">
+                                    <div class="bar bar-green" id="bar-81-100" style="width: 0%"></div>
+                                </div>
+                                <span class="bar-value" id="val-81-100">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-divider"></div>
+                    
+                    <!-- Top Performing Content -->
+                    <h3>🏆 Top Performing Content</h3>
+                    <div class="top-content-tabs">
+                        <button class="top-content-tab-btn active" data-content="videos" onclick="switchTopContent('videos')">Videos</button>
+                        <button class="top-content-tab-btn" data-content="notes" onclick="switchTopContent('notes')">Notes</button>
+                        <button class="top-content-tab-btn" data-content="mcqTests" onclick="switchTopContent('mcqTests')">Tests</button>
+                    </div>
+                    <div id="topContentList" class="top-content-list">
+                        <p class="empty-message">Loading...</p>
+                    </div>
+                    
+                    <div class="analytics-actions">
+                        <button class="btn" onclick="refreshAnalytics()">🔄 Refresh Analytics</button>
+                        <button class="btn" onclick="exportAnalytics()">📥 Export Report</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Content Tab -->
+            <div class="admin-tab-content" id="view-content">
+                <div class="content-card">
+                    <h2>All Content Overview</h2>
+                    
+                    <div class="content-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Videos:</span>
+                            <span class="stat-value" id="totalVideos">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Notes:</span>
+                            <span class="stat-value" id="totalNotes">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Tests:</span>
+                            <span class="stat-value" id="totalTests">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Scheduled Classes:</span>
+                            <span class="stat-value" id="totalClasses">0</span>
+                        </div>
+                    </div>
+
+                    <div class="section-divider"></div>
+
+                    <div class="filter-section">
+                        <label>Filter by Program:</label>
+                        <select class="form-input" id="contentFilter" onchange="filterContent()">
+                            <option value="all">All Programs</option>
+                            <option value="sikshak-sewa">Sikshak Sewa</option>
+                            <option value="loksewa">Loksewa</option>
+                        </select>
+                    </div>
+
+                    <div id="allContentList">
+                        <p class="empty-message">No content available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>LAKSHYA EDUCATION</h3>
+                    <p>Admin Dashboard</p>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2025 Lakshya Education. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script src="firebase-config.js"></script>
+    <script src="auth-utils.js"></script>
+    <script src="firebase-services.js"></script>
+    <script src="notification-service.js"></script>
+    
+    <!-- Admin Dashboard Script -->
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>

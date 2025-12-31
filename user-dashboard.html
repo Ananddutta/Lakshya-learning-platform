@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Lakshya Education</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Dashboard Navigation -->
+    <nav class="dashboard-nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <h2>LAKSHYA EDUCATION</h2>
+                    <span class="user-badge">USER</span>
+                </div>
+                <div class="nav-user">
+                    <button class="notification-btn" onclick="toggleNotifications()">
+                        🔔
+                        <span class="notification-badge" id="notificationBadge" style="display: none;">0</span>
+                    </button>
+                    <span class="welcome-text">Welcome, <strong id="userName">User</strong></span>
+                    <button class="logout-btn" onclick="handleLogout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <section class="dashboard-section">
+        <div class="container">
+            <h1 class="dashboard-title">YOUR DASHBOARD</h1>
+            
+            <!-- Program Selection Cards -->
+            <div class="dashboard-programs">
+                <div class="program-access-card" onclick="window.location.href='sikshak-sewa.html'">
+                    <div class="card-icon">📚</div>
+                    <h3>SIKSHAK SEWA</h3>
+                    <p>Teacher Service Commission Preparation</p>
+                    <div class="access-features">
+                        <span>✓ Videos</span>
+                        <span>✓ Live Classes</span>
+                        <span>✓ Notes</span>
+                        <span>✓ MCQ Tests</span>
+                    </div>
+                    <button class="access-btn">ACCESS NOW →</button>
+                </div>
+
+                <div class="program-access-card" onclick="window.location.href='loksewa.html'">
+                    <div class="card-icon">🏛️</div>
+                    <h3>LOKSEWA</h3>
+                    <p>Public Service Commission Preparation</p>
+                    <div class="access-features">
+                        <span>✓ Videos</span>
+                        <span>✓ Live Classes</span>
+                        <span>✓ Notes</span>
+                        <span>✓ MCQ Tests</span>
+                    </div>
+                    <button class="access-btn">ACCESS NOW →</button>
+                </div>
+            </div>
+
+            <!-- Discussion Forum Section -->
+            <div class="discussion-section">
+                <div class="section-header">
+                    <h2>💬 Discussion Forum</h2>
+                    <button class="btn" onclick="showForumModal()">Create New Post</button>
+                </div>
+                
+                <div class="forum-filters">
+                    <button class="filter-btn active" onclick="filterForumPosts('all')">All Posts</button>
+                    <button class="filter-btn" onclick="filterForumPosts('sikshak-sewa')">Sikshak Sewa</button>
+                    <button class="filter-btn" onclick="filterForumPosts('loksewa')">Loksewa</button>
+                    <button class="filter-btn" onclick="filterForumPosts('general')">General</button>
+                </div>
+                
+                <div class="forum-posts-container" id="forumPostsContainer">
+                    <div class="loading-placeholder">
+                        <p>Loading discussions...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">📹</div>
+                    <div class="stat-info">
+                        <h4>Videos Watched</h4>
+                        <p class="stat-number">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-info">
+                        <h4>Tests Taken</h4>
+                        <p class="stat-number">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📄</div>
+                    <div class="stat-info">
+                        <h4>Notes Downloaded</h4>
+                        <p class="stat-number">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🎓</div>
+                    <div class="stat-info">
+                        <h4>Live Classes</h4>
+                        <p class="stat-number">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>LAKSHYA EDUCATION</h3>
+                    <p>Empowering Nepal's Future Leaders</p>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="index.html" class="footer-link">Home</a>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2025 Lakshya Education. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="notification-header">
+            <h3>🔔 Notifications</h3>
+            <div class="notification-actions">
+                <button class="btn-text" onclick="markAllNotificationsRead()">✓ Mark all read</button>
+                <button class="btn-close" onclick="toggleNotifications()">&times;</button>
+            </div>
+        </div>
+        <div class="notification-list" id="notificationList">
+            <p class="empty-message">No notifications</p>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script src="firebase-config.js"></script>
+    <script src="auth-utils.js"></script>
+    <script src="notification-service.js"></script>
+    <script src="discussion-service.js"></script>
+    
+    <!-- Dashboard Script -->
+    <script src="user-dashboard.js"></script>
+</body>
+</html>

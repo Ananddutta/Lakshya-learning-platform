@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Lakshya Education</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>LAKSHYA EDUCATION</h1>
+                <p>Empowering Nepal's Future Leaders</p>
+            </div>
+
+            <!-- Login Type Selection -->
+            <div class="login-selection" id="loginSelection">
+                <h2>SELECT LOGIN TYPE</h2>
+                <div class="login-type-buttons">
+                    <button class="login-type-btn" onclick="showUserLogin()">
+                        <span class="icon">👤</span>
+                        <span class="text">LOGIN AS USER</span>
+                    </button>
+                    <button class="login-type-btn" onclick="showAdminLogin()">
+                        <span class="icon">🛡️</span>
+                        <span class="text">LOGIN AS ADMIN</span>
+                    </button>
+                </div>
+                <a href="index.html" class="back-link">← Back to Home</a>
+            </div>
+
+            <!-- User Login Form -->
+            <div class="login-form-container" id="userLoginForm" style="display: none;">
+                <button class="back-selection-btn" onclick="showSelection()">← Back</button>
+                
+                <h2>USER LOGIN</h2>
+                <p class="form-subtitle">Sign in with your social account</p>
+
+                <div class="social-login-buttons">
+                    <button class="social-btn google-btn" onclick="handleGoogleLogin()">
+                        <span class="social-icon">G</span>
+                        <span class="social-text">Continue with Google</span>
+                    </button>
+                    
+                    <button class="social-btn facebook-btn" onclick="handleFacebookLogin()">
+                        <span class="social-icon">f</span>
+                        <span class="social-text">Continue with Facebook</span>
+                    </button>
+                </div>
+
+                <div class="login-info">
+                    <p>✓ Access to all course materials</p>
+                    <p>✓ Watch recorded videos</p>
+                    <p>✓ Attend live classes</p>
+                    <p>✓ Download study notes</p>
+                    <p>✓ Take MCQ practice tests</p>
+                </div>
+            </div>
+
+            <!-- Admin Login Form -->
+            <div class="login-form-container" id="adminLoginForm" style="display: none;">
+                <button class="back-selection-btn" onclick="showSelection()">← Back</button>
+                
+                <h2>ADMIN LOGIN</h2>
+                <p class="form-subtitle">Enter admin credentials</p>
+
+                <form class="admin-form" onsubmit="handleAdminLogin(event)">
+                    <div class="form-group">
+                        <label for="adminEmail">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="adminEmail" 
+                            class="form-input" 
+                            placeholder="admin123@gmail.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adminPassword">Password</label>
+                        <input 
+                            type="password" 
+                            id="adminPassword" 
+                            class="form-input" 
+                            placeholder="Enter password"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span>LOGIN AS ADMIN</span>
+                        <span>→</span>
+                    </button>
+                </form>
+
+                <div class="admin-info">
+                    <p>🛡️ Admin Dashboard Access</p>
+                    <p>📤 Upload videos and notes</p>
+                    <p>📝 Create and manage MCQ tests</p>
+                    <p>📅 Schedule live classes</p>
+                </div>
+            </div>
+
+            <!-- Loading Overlay -->
+            <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+                <div class="spinner"></div>
+                <p>Authenticating...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script src="firebase-config.js"></script>
+    <script src="auth-utils.js"></script>
+    
+    <!-- Login Page Script -->
+    <script src="login.js"></script>
+</body>
+</html>

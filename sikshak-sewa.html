@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikshak Sewa - Lakshya Education</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 class="page-title">SIKSHAK SEWA</h1>
+        <p class="page-subtitle">Teacher Service Commission Preparation</p>
+    </header>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <span>←</span>
+                <span>BACK TO HOME</span>
+            </a>
+
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <button class="tab-btn active" data-tab="videos">RECORDED VIDEOS</button>
+                <button class="tab-btn" data-tab="live">LIVE CLASSES</button>
+                <button class="tab-btn" data-tab="notes">NOTES</button>
+                <button class="tab-btn" data-tab="mcq">MCQ TESTS</button>
+            </div>
+
+            <!-- Videos Tab -->
+            <div id="videos" class="tab-content active">
+                <div class="content-grid">
+                    <div class="content-card" onclick="playVideo('video1')">
+                        <h3>Nepali Language Fundamentals</h3>
+                        <p>Complete guide to Nepali grammar, composition, and literature for Sikshak Sewa exam.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 2h 30m</span>
+                            <span>👁️ Views: 15,234</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card" onclick="playVideo('video2')">
+                        <h3>English Language Mastery</h3>
+                        <p>English grammar, vocabulary, and comprehension techniques for teaching exams.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 3h 15m</span>
+                            <span>👁️ Views: 12,890</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card" onclick="playVideo('video3')">
+                        <h3>Mathematics for Teachers</h3>
+                        <p>Comprehensive mathematics curriculum covering algebra, geometry, and statistics.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 4h 00m</span>
+                            <span>👁️ Views: 18,567</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card" onclick="playVideo('video4')">
+                        <h3>Science Concepts</h3>
+                        <p>Physics, Chemistry, and Biology concepts essential for teacher service examinations.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 3h 45m</span>
+                            <span>👁️ Views: 14,321</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card" onclick="playVideo('video5')">
+                        <h3>Social Studies & History</h3>
+                        <p>Nepal's history, geography, civics, and social studies curriculum.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 2h 50m</span>
+                            <span>👁️ Views: 11,456</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card" onclick="playVideo('video6')">
+                        <h3>Teaching Methodology</h3>
+                        <p>Modern teaching techniques, classroom management, and educational psychology.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 2h 20m</span>
+                            <span>👁️ Views: 16,789</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Classes Tab -->
+            <div id="live" class="tab-content">
+                <div class="content-grid">
+                    <div class="content-card live-card">
+                        <div class="live-badge">🔴 LIVE NOW</div>
+                        <h3>Current Affairs & GK Session</h3>
+                        <p>Interactive discussion on recent current events and general knowledge for exams.</p>
+                        <div class="content-meta">
+                            <span>👥 245 participants</span>
+                            <span>⏰ Started 15 mins ago</span>
+                        </div>
+                        <button class="btn btn-join" onclick="joinLiveClass('live1')">JOIN NOW</button>
+                    </div>
+
+                    <div class="content-card scheduled-card">
+                        <div class="scheduled-badge">📅 SCHEDULED</div>
+                        <h3>Advanced Mathematics Workshop</h3>
+                        <p>Problem-solving strategies and advanced mathematical concepts.</p>
+                        <div class="content-meta">
+                            <span>📆 Tomorrow at 10:00 AM</span>
+                            <span>⏱️ Duration: 2 hours</span>
+                        </div>
+                        <button class="btn btn-register" onclick="registerClass('class1')">REGISTER</button>
+                    </div>
+
+                    <div class="content-card scheduled-card">
+                        <div class="scheduled-badge">📅 SCHEDULED</div>
+                        <h3>English Communication Skills</h3>
+                        <p>Improve your English speaking and writing abilities for teaching.</p>
+                        <div class="content-meta">
+                            <span>📆 Jan 2 at 2:00 PM</span>
+                            <span>⏱️ Duration: 1.5 hours</span>
+                        </div>
+                        <button class="btn btn-register" onclick="registerClass('class2')">REGISTER</button>
+                    </div>
+
+                    <div class="content-card scheduled-card">
+                        <div class="scheduled-badge">📅 SCHEDULED</div>
+                        <h3>Exam Strategy Session</h3>
+                        <p>Time management, answer writing techniques, and exam preparation tips.</p>
+                        <div class="content-meta">
+                            <span>📆 Jan 3 at 4:00 PM</span>
+                            <span>⏱️ Duration: 2 hours</span>
+                        </div>
+                        <button class="btn btn-register" onclick="registerClass('class3')">REGISTER</button>
+                    </div>
+
+                    <div class="content-card scheduled-card">
+                        <div class="scheduled-badge">📅 SCHEDULED</div>
+                        <h3>Nepali Literature Deep Dive</h3>
+                        <p>Analysis of major Nepali literary works and poets for comprehensive understanding.</p>
+                        <div class="content-meta">
+                            <span>📆 Jan 5 at 11:00 AM</span>
+                            <span>⏱️ Duration: 3 hours</span>
+                        </div>
+                        <button class="btn btn-register" onclick="registerClass('class4')">REGISTER</button>
+                    </div>
+
+                    <div class="content-card scheduled-card">
+                        <div class="scheduled-badge">📅 SCHEDULED</div>
+                        <h3>Educational Psychology Masterclass</h3>
+                        <p>Child development, learning theories, and classroom psychology.</p>
+                        <div class="content-meta">
+                            <span>📆 Jan 6 at 3:00 PM</span>
+                            <span>⏱️ Duration: 2.5 hours</span>
+                        </div>
+                        <button class="btn btn-register" onclick="registerClass('class5')">REGISTER</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes Tab -->
+            <div id="notes" class="tab-content">
+                <div class="content-grid">
+                    <div class="content-card" onclick="downloadNotes('notes1')">
+                        <h3>Complete Nepali Grammar Notes</h3>
+                        <p>Comprehensive notes covering all aspects of Nepali grammar with examples.</p>
+                        <div class="content-meta">
+                            <span>📄 150 pages</span>
+                            <span>⬇️ 3,245 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes2')">
+                        <h3>English Grammar Handbook</h3>
+                        <p>Essential English grammar rules, usage, and practice exercises.</p>
+                        <div class="content-meta">
+                            <span>📄 120 pages</span>
+                            <span>⬇️ 2,876 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes3')">
+                        <h3>Mathematics Formula Sheet</h3>
+                        <p>All important formulas and theorems for quick revision and reference.</p>
+                        <div class="content-meta">
+                            <span>📄 45 pages</span>
+                            <span>⬇️ 4,123 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes4')">
+                        <h3>Science Study Material</h3>
+                        <p>Physics, Chemistry, and Biology concepts with diagrams and explanations.</p>
+                        <div class="content-meta">
+                            <span>📄 200 pages</span>
+                            <span>⬇️ 3,567 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes5')">
+                        <h3>Nepal History & Geography</h3>
+                        <p>Detailed notes on Nepal's historical events and geographical features.</p>
+                        <div class="content-meta">
+                            <span>📄 85 pages</span>
+                            <span>⬇️ 2,234 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes6')">
+                        <h3>Teaching Methods Guide</h3>
+                        <p>Modern pedagogical approaches and classroom management techniques.</p>
+                        <div class="content-meta">
+                            <span>📄 95 pages</span>
+                            <span>⬇️ 2,987 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes7')">
+                        <h3>Current Affairs Monthly Digest</h3>
+                        <p>Compiled current events and news relevant for competitive examinations.</p>
+                        <div class="content-meta">
+                            <span>📄 60 pages</span>
+                            <span>⬇️ 5,432 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes8')">
+                        <h3>Previous Year Question Papers</h3>
+                        <p>Collection of past Sikshak Sewa exam papers with solutions.</p>
+                        <div class="content-meta">
+                            <span>📄 180 pages</span>
+                            <span>⬇️ 6,789 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MCQ Tests Tab -->
+            <div id="mcq" class="tab-content">
+                <div class="content-grid">
+                    <div class="content-card test-card">
+                        <h3>Nepali Language Test - Basic</h3>
+                        <p>Test your knowledge of Nepali grammar, vocabulary, and comprehension.</p>
+                        <div class="content-meta">
+                            <span>❓ 50 questions</span>
+                            <span>⏰ 45 minutes</span>
+                            <span>✅ 8,234 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test1')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>English Proficiency Test</h3>
+                        <p>Assess your English language skills with grammar and vocabulary questions.</p>
+                        <div class="content-meta">
+                            <span>❓ 60 questions</span>
+                            <span>⏰ 60 minutes</span>
+                            <span>✅ 7,123 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test2')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>Mathematics - Advanced</h3>
+                        <p>Challenging mathematical problems to test your problem-solving skills.</p>
+                        <div class="content-meta">
+                            <span>❓ 40 questions</span>
+                            <span>⏰ 90 minutes</span>
+                            <span>✅ 5,678 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test3')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>General Science Quiz</h3>
+                        <p>Cover Physics, Chemistry, and Biology topics for comprehensive preparation.</p>
+                        <div class="content-meta">
+                            <span>❓ 75 questions</span>
+                            <span>⏰ 75 minutes</span>
+                            <span>✅ 6,432 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test4')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>Social Studies Assessment</h3>
+                        <p>Test covering Nepal's history, geography, civics, and current affairs.</p>
+                        <div class="content-meta">
+                            <span>❓ 50 questions</span>
+                            <span>⏰ 50 minutes</span>
+                            <span>✅ 4,890 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test5')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>Teaching Aptitude Test</h3>
+                        <p>Evaluate your understanding of teaching methods and educational psychology.</p>
+                        <div class="content-meta">
+                            <span>❓ 45 questions</span>
+                            <span>⏰ 40 minutes</span>
+                            <span>✅ 5,234 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test6')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>Full Mock Test - Series 1</h3>
+                        <p>Complete simulation of Sikshak Sewa exam covering all subjects.</p>
+                        <div class="content-meta">
+                            <span>❓ 100 questions</span>
+                            <span>⏰ 120 minutes</span>
+                            <span>✅ 9,876 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test7')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>Current Affairs Test</h3>
+                        <p>Stay updated with recent events and general knowledge questions.</p>
+                        <div class="content-meta">
+                            <span>❓ 30 questions</span>
+                            <span>⏰ 30 minutes</span>
+                            <span>✅ 7,654 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test8')">START TEST</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>LAKSHYA EDUCATION</h3>
+                    <p>Empowering Nepal's Future Leaders</p>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="index.html" class="footer-link">Home</a>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2025 Lakshya Education. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script src="firebase-config.js"></script>
+    <script src="auth-utils.js"></script>
+    <script src="firebase-services.js"></script>
+    <script src="video-progress-tracker.js"></script>
+    <script src="discussion-service.js"></script>
+    
+    <!-- Program Content Loader - Real-time Firebase Data -->
+    <script src="program-content-loader.js"></script>
+    
+    <!-- Login Page Script -->
+    <script src="script.js"></script>
+</body>
+</html>

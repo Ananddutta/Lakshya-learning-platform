@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loksewa - Lakshya Education</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 class="page-title">LOKSEWA</h1>
+        <p class="page-subtitle">Public Service Commission Preparation</p>
+    </header>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <span>←</span>
+                <span>BACK TO HOME</span>
+            </a>
+
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <button class="tab-btn active" data-tab="videos">RECORDED VIDEOS</button>
+                <button class="tab-btn" data-tab="live">LIVE CLASSES</button>
+                <button class="tab-btn" data-tab="notes">NOTES</button>
+                <button class="tab-btn" data-tab="mcq">MCQ TESTS</button>
+            </div>
+
+            <!-- Videos Tab -->
+            <div id="videos" class="tab-content active">
+                <div class="content-grid">
+                    <div class="content-card" onclick="playVideo('video1')">
+                        <h3>Nepal Constitution 2072</h3>
+                        <p>In-depth analysis of Nepal's constitution, fundamental rights, and governance structure.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 3h 45m</span>
+                            <span>👁️ Views: 24,567</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card" onclick="playVideo('video2')">
+                        <h3>General Studies & Current Affairs</h3>
+                        <p>Comprehensive coverage of national and international current affairs and GK.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 2h 30m</span>
+                            <span>👁️ Views: 28,345</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card" onclick="playVideo('video3')">
+                        <h3>Public Administration Concepts</h3>
+                        <p>Core principles of public administration, bureaucracy, and governance systems.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 4h 15m</span>
+                            <span>👁️ Views: 19,234</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card" onclick="playVideo('video4')">
+                        <h3>Economics for Civil Services</h3>
+                        <p>Micro and macroeconomics, Nepal's economy, and development theories.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 5h 00m</span>
+                            <span>👁️ Views: 21,876</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card" onclick="playVideo('video5')">
+                        <h3>Quantitative Aptitude</h3>
+                        <p>Mathematical reasoning, data interpretation, and problem-solving techniques.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 3h 20m</span>
+                            <span>👁️ Views: 17,654</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card" onclick="playVideo('video6')">
+                        <h3>Reasoning & Logical Ability</h3>
+                        <p>Verbal and non-verbal reasoning, logical deductions, and analytical skills.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 2h 45m</span>
+                            <span>👁️ Views: 15,432</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card" onclick="playVideo('video7')">
+                        <h3>Nepal Geography & History</h3>
+                        <p>Complete coverage of Nepal's physical features, resources, and historical timeline.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 3h 30m</span>
+                            <span>👁️ Views: 22,987</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card" onclick="playVideo('video8')">
+                        <h3>International Relations</h3>
+                        <p>Nepal's foreign policy, international organizations, and diplomatic relations.</p>
+                        <div class="content-meta">
+                            <span>📹 Duration: 2h 50m</span>
+                            <span>👁️ Views: 14,123</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Classes Tab -->
+            <div id="live" class="tab-content">
+                <div class="content-grid">
+                    <div class="content-card live-card">
+                        <div class="live-badge">🔴 LIVE NOW</div>
+                        <h3>Daily Current Affairs Analysis</h3>
+                        <p>Expert discussion on today's important news and events for PSC exams.</p>
+                        <div class="content-meta">
+                            <span>👥 389 participants</span>
+                            <span>⏰ Started 20 mins ago</span>
+                        </div>
+                        <button class="btn btn-join" onclick="joinLiveClass('live1')">JOIN NOW</button>
+                    </div>
+
+                    <div class="content-card scheduled-card">
+                        <div class="scheduled-badge">📅 SCHEDULED</div>
+                        <h3>Constitution Deep Dive Session</h3>
+                        <p>Detailed analysis of constitutional provisions and landmark judgments.</p>
+                        <div class="content-meta">
+                            <span>📆 Tomorrow at 9:00 AM</span>
+                            <span>⏱️ Duration: 3 hours</span>
+                        </div>
+                        <button class="btn btn-register" onclick="registerClass('class1')">REGISTER</button>
+                    </div>
+
+                    <div class="content-card scheduled-card">
+                        <div class="scheduled-badge">📅 SCHEDULED</div>
+                        <h3>Economics Masterclass</h3>
+                        <p>Advanced economic concepts and Nepal's economic development strategies.</p>
+                        <div class="content-meta">
+                            <span>📆 Jan 2 at 1:00 PM</span>
+                            <span>⏱️ Duration: 2.5 hours</span>
+                        </div>
+                        <button class="btn btn-register" onclick="registerClass('class2')">REGISTER</button>
+                    </div>
+
+                    <div class="content-card scheduled-card">
+                        <div class="scheduled-badge">📅 SCHEDULED</div>
+                        <h3>Quantitative Aptitude Workshop</h3>
+                        <p>Speed calculation techniques and shortcut methods for competitive exams.</p>
+                        <div class="content-meta">
+                            <span>📆 Jan 3 at 3:00 PM</span>
+                            <span>⏱️ Duration: 2 hours</span>
+                        </div>
+                        <button class="btn btn-register" onclick="registerClass('class3')">REGISTER</button>
+                    </div>
+
+                    <div class="content-card scheduled-card">
+                        <div class="scheduled-badge">📅 SCHEDULED</div>
+                        <h3>Interview Preparation</h3>
+                        <p>Mock interviews, personality development, and communication skills for PSC.</p>
+                        <div class="content-meta">
+                            <span>📆 Jan 4 at 5:00 PM</span>
+                            <span>⏱️ Duration: 2 hours</span>
+                        </div>
+                        <button class="btn btn-register" onclick="registerClass('class4')">REGISTER</button>
+                    </div>
+
+                    <div class="content-card scheduled-card">
+                        <div class="scheduled-badge">📅 SCHEDULED</div>
+                        <h3>Public Administration Theory</h3>
+                        <p>Classical and modern theories of public administration and governance.</p>
+                        <div class="content-meta">
+                            <span>📆 Jan 5 at 10:00 AM</span>
+                            <span>⏱️ Duration: 3 hours</span>
+                        </div>
+                        <button class="btn btn-register" onclick="registerClass('class5')">REGISTER</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes Tab -->
+            <div id="notes" class="tab-content">
+                <div class="content-grid">
+                    <div class="content-card" onclick="downloadNotes('notes1')">
+                        <h3>Constitution of Nepal - Complete Guide</h3>
+                        <p>Comprehensive notes on Nepal's constitution with important articles and amendments.</p>
+                        <div class="content-meta">
+                            <span>📄 250 pages</span>
+                            <span>⬇️ 8,765 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes2')">
+                        <h3>Current Affairs Yearly Compilation</h3>
+                        <p>Complete coverage of important events from the past year with analysis.</p>
+                        <div class="content-meta">
+                            <span>📄 180 pages</span>
+                            <span>⬇️ 12,432 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes3')">
+                        <h3>Public Administration Notes</h3>
+                        <p>Detailed study material on public administration concepts and theories.</p>
+                        <div class="content-meta">
+                            <span>📄 200 pages</span>
+                            <span>⬇️ 6,543 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes4')">
+                        <h3>Economics - Comprehensive Material</h3>
+                        <p>Micro, macro economics and Nepal's economic policies and development plans.</p>
+                        <div class="content-meta">
+                            <span>📄 220 pages</span>
+                            <span>⬇️ 7,234 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes5')">
+                        <h3>Quantitative Aptitude Handbook</h3>
+                        <p>Mathematical formulas, shortcuts, and practice problems for quick calculations.</p>
+                        <div class="content-meta">
+                            <span>📄 140 pages</span>
+                            <span>⬇️ 9,876 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes6')">
+                        <h3>Reasoning & Logic Guide</h3>
+                        <p>Complete guide to verbal, non-verbal, and analytical reasoning with tricks.</p>
+                        <div class="content-meta">
+                            <span>📄 160 pages</span>
+                            <span>⬇️ 8,123 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes7')">
+                        <h3>Nepal Geography & Resources</h3>
+                        <p>Physical, economic, and regional geography of Nepal with maps and data.</p>
+                        <div class="content-meta">
+                            <span>📄 110 pages</span>
+                            <span>⬇️ 5,678 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes8')">
+                        <h3>Nepal History Timeline</h3>
+                        <p>Chronological overview of major events in Nepal's history with analysis.</p>
+                        <div class="content-meta">
+                            <span>📄 95 pages</span>
+                            <span>⬇️ 6,432 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes9')">
+                        <h3>International Relations Notes</h3>
+                        <p>Nepal's foreign policy, treaties, and relations with neighboring countries.</p>
+                        <div class="content-meta">
+                            <span>📄 130 pages</span>
+                            <span>⬇️ 4,567 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+
+                    <div class="content-card" onclick="downloadNotes('notes10')">
+                        <h3>Previous PSC Question Bank</h3>
+                        <p>Collection of past Public Service Commission exams with detailed solutions.</p>
+                        <div class="content-meta">
+                            <span>📄 300 pages</span>
+                            <span>⬇️ 15,234 downloads</span>
+                        </div>
+                        <button class="btn btn-download">DOWNLOAD PDF</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MCQ Tests Tab -->
+            <div id="mcq" class="tab-content">
+                <div class="content-grid">
+                    <div class="content-card test-card">
+                        <h3>Constitution Knowledge Test</h3>
+                        <p>Test your understanding of Nepal's constitution and governance system.</p>
+                        <div class="content-meta">
+                            <span>❓ 75 questions</span>
+                            <span>⏰ 60 minutes</span>
+                            <span>✅ 12,345 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test1')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>General Knowledge Quiz</h3>
+                        <p>Comprehensive GK covering national and international topics.</p>
+                        <div class="content-meta">
+                            <span>❓ 100 questions</span>
+                            <span>⏰ 90 minutes</span>
+                            <span>✅ 15,678 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test2')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>Public Administration Test</h3>
+                        <p>Assess your knowledge of administrative theories and practices.</p>
+                        <div class="content-meta">
+                            <span>❓ 60 questions</span>
+                            <span>⏰ 60 minutes</span>
+                            <span>✅ 8,234 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test3')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>Economics Assessment</h3>
+                        <p>Test covering micro, macro economics and Nepal's economic policies.</p>
+                        <div class="content-meta">
+                            <span>❓ 80 questions</span>
+                            <span>⏰ 75 minutes</span>
+                            <span>✅ 9,876 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test4')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>Quantitative Aptitude Challenge</h3>
+                        <p>Mathematical reasoning and data interpretation questions.</p>
+                        <div class="content-meta">
+                            <span>❓ 50 questions</span>
+                            <span>⏰ 60 minutes</span>
+                            <span>✅ 11,234 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test5')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>Reasoning & Logic Test</h3>
+                        <p>Evaluate your verbal and non-verbal reasoning abilities.</p>
+                        <div class="content-meta">
+                            <span>❓ 70 questions</span>
+                            <span>⏰ 70 minutes</span>
+                            <span>✅ 10,432 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test6')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>Nepal Geography Quiz</h3>
+                        <p>Questions on Nepal's physical features, resources, and regional geography.</p>
+                        <div class="content-meta">
+                            <span>❓ 40 questions</span>
+                            <span>⏰ 40 minutes</span>
+                            <span>✅ 7,654 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test7')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>History & Culture Test</h3>
+                        <p>Test your knowledge of Nepal's historical events and cultural heritage.</p>
+                        <div class="content-meta">
+                            <span>❓ 50 questions</span>
+                            <span>⏰ 45 minutes</span>
+                            <span>✅ 6,789 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test8')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>Current Affairs Monthly Test</h3>
+                        <p>Stay updated with recent events and developments in Nepal and world.</p>
+                        <div class="content-meta">
+                            <span>❓ 50 questions</span>
+                            <span>⏰ 45 minutes</span>
+                            <span>✅ 13,456 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test9')">START TEST</button>
+                    </div>
+
+                    <div class="content-card test-card">
+                        <h3>Full Mock Test - PSC Level</h3>
+                        <p>Complete simulation of Public Service Commission examination.</p>
+                        <div class="content-meta">
+                            <span>❓ 150 questions</span>
+                            <span>⏰ 180 minutes</span>
+                            <span>✅ 18,765 attempts</span>
+                        </div>
+                        <button class="btn btn-start" onclick="startTest('test10')">START TEST</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>LAKSHYA EDUCATION</h3>
+                    <p>Empowering Nepal's Future Leaders</p>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="index.html" class="footer-link">Home</a>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2025 Lakshya Education. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script src="firebase-config.js"></script>
+    <script src="auth-utils.js"></script>
+    <script src="firebase-services.js"></script>
+    <script src="video-progress-tracker.js"></script>
+    <script src="discussion-service.js"></script>
+    
+    <!-- Program Content Loader - Real-time Firebase Data -->
+    <script src="program-content-loader.js"></script>
+    
+    <!-- Login Page Script -->
+    <script src="script.js"></script>
+</body>
+</html>

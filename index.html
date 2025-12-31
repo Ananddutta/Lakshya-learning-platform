@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshya Education - Empowering Future Leaders</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        
+        <!-- Login Button -->
+        <div class="hero-login-btn">
+            <a href="login.html" class="login-link">LOGIN</a>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">EXCELLENCE • DISCIPLINE • SUCCESS</div>
+            <h1 class="hero-title">LAKSHYA EDUCATION</h1>
+            <div class="hero-divider"></div>
+            <h2 class="hero-subtitle">Empowering Nepal's Future Leaders</h2>
+            
+            <div class="hero-info">
+                <div class="info-card">
+                    <div class="info-icon">🎯</div>
+                    <h3>Our Aim</h3>
+                    <p class="info-preview">To provide world-class educational resources and training for aspiring civil servants and educators in Nepal...</p>
+                    <p class="info-full" style="display: none;">To provide world-class educational resources and training for aspiring civil servants and educators in Nepal, fostering excellence through discipline and dedication. We equip our students with comprehensive knowledge, strategic thinking, and practical skills necessary to excel in competitive examinations and serve the nation with integrity.</p>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">⚡</div>
+                    <h3>Core Purpose</h3>
+                    <p class="info-preview">Lakshya Education stands as Nepal's premier institution for competitive exam preparation...</p>
+                    <p class="info-full" style="display: none;">Lakshya Education stands as Nepal's premier institution for competitive exam preparation, offering comprehensive training for Loksewa (Public Service Commission) and Sikshak Sewa (Teacher Service Commission) examinations. Our rigorous curriculum, expert faculty, and proven methodologies have helped thousands of students achieve their career goals in public service and education sectors.</p>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">🏆</div>
+                    <h3>Our Mission</h3>
+                    <p class="info-preview">Building a stronger nation through quality education, strategic preparation, and unwavering commitment...</p>
+                    <p class="info-full" style="display: none;">Building a stronger nation through quality education, strategic preparation, and unwavering commitment to student success. We transform aspirations into achievements by providing personalized guidance, regular assessments, and continuous support throughout our students' preparation journey. Our mission is to create competent, confident, and ethical professionals who will shape Nepal's future.</p>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Students Trained</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Expert Instructors</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-line"></span>
+                OUR PROGRAMS
+                <span class="title-line"></span>
+            </h2>
+            
+            <div class="programs-grid">
+                <!-- Sikshak Sewa Card -->
+                <div class="program-card">
+                    <div class="card-header">
+                        <div class="card-icon">📚</div>
+                        <h3 class="card-title">SIKSHAK SEWA</h3>
+                        <div class="card-subtitle">Teacher Service Commission</div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <p class="card-description">Comprehensive preparation for Teacher Service Commission examinations with expert guidance and proven methodologies.</p>
+                        
+                        <ul class="card-features">
+                            <li>✓ Recorded Video Lectures</li>
+                            <li>✓ Live Interactive Classes</li>
+                            <li>✓ Study Notes & Materials</li>
+                            <li>✓ MCQ Practice Tests</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <a href="login.html" class="btn btn-primary">
+                            <span>ENTER PROGRAM</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Loksewa Card -->
+                <div class="program-card">
+                    <div class="card-header">
+                        <div class="card-icon">🏛️</div>
+                        <h3 class="card-title">LOKSEWA</h3>
+                        <div class="card-subtitle">Public Service Commission</div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <p class="card-description">Strategic training for Public Service Commission examinations, preparing you for a distinguished career in civil service.</p>
+                        
+                        <ul class="card-features">
+                            <li>✓ Recorded Video Lectures</li>
+                            <li>✓ Live Interactive Classes</li>
+                            <li>✓ Study Notes & Materials</li>
+                            <li>✓ MCQ Practice Tests</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <a href="login.html" class="btn btn-primary">
+                            <span>ENTER PROGRAM</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>LAKSHYA EDUCATION</h3>
+                    <p>Empowering Nepal's Future Leaders</p>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="index.html" class="footer-link">Home</a>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2025 Lakshya Education. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
